@@ -60,9 +60,7 @@ class MainController < Ramaze::Controller
       end
     end
 
-    @zepto_uri = URI(request.referer)
-    @zepto_uri.query = nil
-    @zepto_uri.path = "/#{zepto_id}"
+    @zepto_uri = URI("http://" + request.env['HTTP_HOST'] + "/#{zepto_id}")
     @original_uri = uri
   end
 
